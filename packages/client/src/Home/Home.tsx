@@ -1,10 +1,10 @@
 import React from 'react'
-import type { FC } from 'react'
 import { Container, InputRightElement, Input, Heading, InputGroup, IconButton, VStack } from '@chakra-ui/react'
 import { Search2Icon } from '@chakra-ui/icons'
+import { useQuery } from '@apollo/client'
 
-export const Home: FC = () => (
-  <VStack spacing="8">
+export const Home: React.VoidFunctionComponent = () => {
+  return <VStack spacing="8">
     <Heading as="h1">Smart traveller</Heading>
     <Container maxW="container.md">
       <InputGroup>
@@ -13,4 +13,4 @@ export const Home: FC = () => (
       </InputGroup>
     </Container>
   </VStack>
-)
+}

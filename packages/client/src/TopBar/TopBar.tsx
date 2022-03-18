@@ -1,10 +1,9 @@
 import React from 'react'
-import type { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { Box, HStack, Image, useColorMode, Link as ChakraLink } from '@chakra-ui/react'
 import { ColorModeSwitcher } from './ColorModeSwitcher'
 
-export const TopBar: FC = () => {
+export const TopBar: React.VoidFunctionComponent = () => {
   const { colorMode } = useColorMode()
   const image = colorMode === 'light' ? 'smart-logo.svg' : 'smart-logo-contrast.svg'
   return (

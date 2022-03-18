@@ -1,11 +1,10 @@
 import React from 'react'
-import type { FC } from 'react'
 import { ChakraProvider, Box, extendTheme } from '@chakra-ui/react'
 import { Route, Routes } from 'react-router-dom'
-import { TopBar } from './TopBar'
-import { Home } from './Home'
+import TopBar  from './TopBar'
+import { Home } from './Home/Home'
 import { WishList } from './WishList'
-import { Visited } from './Visited'
+import { Visited } from './Visited/Visited'
 
 const fonts = {
   heading:
@@ -15,7 +14,7 @@ const fonts = {
   mono: 'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
 }
 
-export const App: FC = () => (
+export const App: React.VoidFunctionComponent = () => (
   <ChakraProvider theme={extendTheme({ fonts })}>
     <TopBar />
     <Box textAlign="center">
