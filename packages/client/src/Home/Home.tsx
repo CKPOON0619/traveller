@@ -2,7 +2,8 @@ import React from 'react'
 import { Container, InputRightElement, Input, Heading, InputGroup, IconButton, VStack } from '@chakra-ui/react'
 import { Search2Icon } from '@chakra-ui/icons'
 import { SearchResult } from './SearchResult'
-
+//TODO: Add search by country
+//TODO: Add on demand query for infinite scrolling using offset and limit when no filter is applied
 export const Home: React.VoidFunctionComponent = () => {
   const searchRef = React.useRef<HTMLInputElement>(null)
   const [confirmedSearch, setconfirmedSearch] = React.useState<string | undefined>(undefined)
