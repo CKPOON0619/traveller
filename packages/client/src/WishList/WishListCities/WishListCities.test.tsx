@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import { WishListCities } from './WishListCities'
-import { useWishListCitiesQuery } from '../../shared/dataHooks/useWishListCitiesQuery'
+import { useWishListCitiesQuery } from '../../hooks/useWishListCitiesQuery'
 import type { ApolloError } from '@apollo/client'
 
-jest.mock('./../../shared/dataHooks/useWishListCitiesQuery')
+jest.mock('./../../hooks/useWishListCitiesQuery')
 const mockedUseWishListCitiesQuery = useWishListCitiesQuery as jest.Mock
 jest.mock('./City', () => ({
   City: ({ id }: { id: number }) => {

@@ -1,8 +1,14 @@
+import type { ApolloError } from '@apollo/client'
 import { gql, useMutation } from '@apollo/client'
 import * as React from 'react'
 import type { CityMutation } from './type'
 
-export const useCityMutation = () => {
+interface useCityMuReturnType {
+  handleCityChange: (changes: CityMutation) => void
+  error?: ApolloError
+}
+
+export const useCityMutation = (): useCityMuReturnType => {
   const CITY_MUTATE = gql`
     mutation CITY_MUTATE($input: CitiesMutationInput) {
       updateCity(input: $input) {

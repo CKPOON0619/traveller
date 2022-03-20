@@ -1,7 +1,7 @@
 import React from 'react'
 import { City } from './City'
-import { useCitiesSearchQuery } from '../../shared/dataHooks/useCitiesSearchQuery'
-import { CitiesDisplay } from '../../shared/CitiesDisplay/CitiesDisplay'
+import { useCitiesSearchQuery } from '../../hooks/useCitiesSearchQuery'
+import { CitiesDisplay } from '../../components/CitiesDisplay/CitiesDisplay'
 
 export const SearchResult: React.VoidFunctionComponent<{ searchName: string }> = ({ searchName }) => {
   const { loading, cities, error } = useCitiesSearchQuery(searchName)

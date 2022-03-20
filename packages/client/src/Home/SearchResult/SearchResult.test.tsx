@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import { SearchResult } from './SearchResult'
 import type { ApolloError } from '@apollo/client'
-import { useCitiesSearchQuery } from '../../shared/dataHooks/useCitiesSearchQuery'
+import { useCitiesSearchQuery } from '../../hooks/useCitiesSearchQuery'
 
-jest.mock('../../shared/dataHooks/useCitiesSearchQuery')
+jest.mock('../../hooks/useCitiesSearchQuery')
 jest.mock('./City', () => ({
   City: ({ id }: { id: number }) => {
     return <div>{`city:${id}`}</div>

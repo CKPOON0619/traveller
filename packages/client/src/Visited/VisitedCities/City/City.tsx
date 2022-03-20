@@ -1,20 +1,20 @@
 import * as React from 'react'
-import { useCityQuery } from '../../../shared/dataHooks/useCityQuery'
-import { useCityMutation } from '../../../shared/dataHooks/useCityMutation'
-import { MemoizedCityCard } from '../../../shared/CityCard/CityCard'
+import { useCityQuery } from '../../../hooks/useCityQuery'
+import { useCityMutation } from '../../../hooks/useCityMutation'
+import { MemoizedCityCard } from '../../../components/CityCard/CityCard'
 
 export interface CityProps {
   id: number
 }
 
 export const City: React.VoidFunctionComponent<CityProps> = ({ id }) => {
-  const { data: queryData, error: queryError, loading: queryLoading } = useCityQuery(id)
+  const { city, error: queryError, loading: queryLoading } = useCityQuery(id)
   const { handleCityChange, error: mutateError } = useCityMutation()
-  const displayInfo = queryData && {
-    id: queryData.city.id,
-    name: queryData.city.name,
-    country: queryData.city.country,
-    wishlist: queryData.city.wishlist,
+  const displayInfo = city && {
+    id: city.id,
+    name: city.name,
+    country: city.country,
+    wishlist: city.wishlist,
   }
 
   return (

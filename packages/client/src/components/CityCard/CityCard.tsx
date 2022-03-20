@@ -3,7 +3,7 @@ import { Box, Image, Flex, Text } from '@chakra-ui/react'
 import { MdStar, MdStarBorder, MdAddLocation, MdLocationOn } from 'react-icons/md'
 
 import * as React from 'react'
-import type { CityID, CityFacts, CityUserConfig, CityMutation } from '../dataHooks/type'
+import type { CityID, CityFacts, CityUserConfig, CityMutation } from '../../hooks/type'
 
 interface CityCardProps {
   cityInfo?: CityID & CityFacts & Partial<CityUserConfig>

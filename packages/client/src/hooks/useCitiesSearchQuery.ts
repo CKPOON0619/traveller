@@ -1,7 +1,14 @@
+import type { ApolloError } from '@apollo/client'
 import { useQuery, gql } from '@apollo/client'
 import type { CityData } from './type'
 
-export const useCitiesSearchQuery = (searchCityName?: string) => {
+interface useCitiesSearchQueryReturn {
+  loading: boolean
+  error?: ApolloError
+  cities?: CityData[]
+}
+
+export const useCitiesSearchQuery = (searchCityName?: string): useCitiesSearchQueryReturn => {
   const CITIES_SEARCH_QUERY = gql`
     query CITIES_SEARCH_QUERY($filter: CitiesFilters) {
       cities(filter: $filter) {

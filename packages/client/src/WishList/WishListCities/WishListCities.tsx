@@ -1,7 +1,7 @@
 import React from 'react'
 import { City } from './City'
-import { useWishListCitiesQuery } from '../../shared/dataHooks/useWishListCitiesQuery'
-import { CitiesDisplay } from '../../shared/CitiesDisplay/CitiesDisplay'
+import { useWishListCitiesQuery } from '../../hooks/useWishListCitiesQuery'
+import { CitiesDisplay } from '../../components/CitiesDisplay/CitiesDisplay'
 
 export const WishListCities: React.VoidFunctionComponent = () => {
   const { loading, cities, error } = useWishListCitiesQuery()

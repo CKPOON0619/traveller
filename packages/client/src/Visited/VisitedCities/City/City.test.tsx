@@ -1,10 +1,10 @@
 import { screen, render, fireEvent } from '@testing-library/react'
 import { City } from './City'
-import { useCityQuery } from '../../../shared/dataHooks/useCityQuery'
-import { useCityMutation } from '../../../shared/dataHooks/useCityMutation'
+import { useCityQuery } from '../../../hooks/useCityQuery'
+import { useCityMutation } from '../../../hooks/useCityMutation'
 import type { ApolloError } from '@apollo/client'
-jest.mock('../../../shared/dataHooks/useCityQuery')
-jest.mock('../../../shared/dataHooks/useCityMutation')
+jest.mock('../../../hooks/useCityQuery')
+jest.mock('../../../hooks/useCityMutation')
 const mockedUseCityQuery = useCityQuery as jest.Mock
 const mockeduseCityMutation = useCityMutation as jest.Mock
 
@@ -15,7 +15,7 @@ describe('<City /> component for Visited page', () => {
   it('renders the correct loading placeholder', async () => {
     mockedUseCityQuery.mockReturnValue({
       loading: true,
-      data: undefined,
+      city: undefined,
       error: undefined,
     })
     const cityMutationUpdate = jest.fn()
@@ -29,7 +29,7 @@ describe('<City /> component for Visited page', () => {
   it('renders the correct error placeholder', async () => {
     mockedUseCityQuery.mockReturnValue({
       loading: false,
-      data: undefined,
+      city: undefined,
       error: { message: 'some error' } as ApolloError,
     })
     const cityMutationUpdate = jest.fn()
@@ -43,13 +43,11 @@ describe('<City /> component for Visited page', () => {
   it('renders the Card with CityFacts and ONLY wishlist button', async () => {
     mockedUseCityQuery.mockReturnValue({
       loading: false,
-      data: {
-        city: {
-          name: 'Test city',
-          country: 'Test country',
-          wishlist: true,
-          visited: true,
-        },
+      city: {
+        name: 'Test city',
+        country: 'Test country',
+        wishlist: true,
+        visited: true,
       },
       error: undefined,
     })
@@ -72,14 +70,12 @@ describe('<City /> component for Visited page', () => {
     it('when is it already in the list, clicking the button would remove it from the list', async () => {
       mockedUseCityQuery.mockReturnValue({
         loading: false,
-        data: {
-          city: {
-            id: 1,
-            name: 'Test city',
-            country: 'Test country',
-            wishlist: true,
-            visited: true,
-          },
+        city: {
+          id: 1,
+          name: 'Test city',
+          country: 'Test country',
+          wishlist: true,
+          visited: true,
         },
         error: undefined,
       })
@@ -98,14 +94,12 @@ describe('<City /> component for Visited page', () => {
     it('when is it not in the list, clicking the button would add it to the list', async () => {
       mockedUseCityQuery.mockReturnValue({
         loading: false,
-        data: {
-          city: {
-            id: 1,
-            name: 'Test city',
-            country: 'Test country',
-            wishlist: false,
-            visited: false,
-          },
+        city: {
+          id: 1,
+          name: 'Test city',
+          country: 'Test country',
+          wishlist: false,
+          visited: false,
         },
         error: undefined,
       })
