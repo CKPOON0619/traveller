@@ -40,3 +40,10 @@ We have provided a few packages that will help you in your solution:
 - Functionality tested.
 - An accessible solution.
 - We use TypeScript and would be happy to see a well typed solution, however if you're not comfortable with this feel free to use JavaScript.
+
+## KIN TODO:
+
+- Replace country picture if actual(if any)
+- Replace card result by infinite scroll using limit and offset
+- Replace error, loading and empty placeholder with better UI
+- Investigate query caching to improve performance
