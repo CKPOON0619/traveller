@@ -50,7 +50,7 @@ export const CityCard: React.VoidFunctionComponent<CityCardProps> = ({ cityInfo,
   const { name, country, wishlist, visited } = cityInfo
 
   return (
-    <Box data-testid="CityCard" p="5" maxW="320px" borderWidth="1px">
+    <Box aria-label={`Card of ${name} in ${country}`} p="5" maxW="320px" borderWidth="1px">
       <Image borderRadius="md" src="https://bit.ly/2k1H1t6" />
       <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
         {country}
@@ -59,7 +59,14 @@ export const CityCard: React.VoidFunctionComponent<CityCardProps> = ({ cityInfo,
         {name}
       </Text>
       {wishlist !== undefined ? (
-        <Flex cursor={onCityChange ? 'pointer' : 'default'} onClick={handleWishlistChange} mt={2} align="center">
+        <Flex
+          role="button"
+          aria-label="add to wishlist"
+          cursor={onCityChange ? 'pointer' : 'default'}
+          onClick={handleWishlistChange}
+          mt={2}
+          align="center"
+        >
           <Box as={wishlist ? MdStar : MdStarBorder} color="orange.400" />
           <Text ml={1} fontSize="sm">
             <b>I Wish!</b>
@@ -67,7 +74,14 @@ export const CityCard: React.VoidFunctionComponent<CityCardProps> = ({ cityInfo,
         </Flex>
       ) : null}
       {visited !== undefined ? (
-        <Flex cursor={onCityChange ? 'pointer' : 'default'} onClick={handleVisitChange} mt={2} align="center">
+        <Flex
+          role="button"
+          aria-label="add to visited"
+          cursor={onCityChange ? 'pointer' : 'default'}
+          onClick={handleVisitChange}
+          mt={2}
+          align="center"
+        >
           <Box as={visited ? MdLocationOn : MdAddLocation} color={visited ? 'orange.400' : 'gray.400'} />
           <Text ml={1} fontSize="sm">
             <b>Visited</b>

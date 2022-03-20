@@ -3,9 +3,10 @@ import { CityCard } from './CityCard'
 import type { ApolloError } from '@apollo/client'
 
 describe('<CityCard /> component', () => {
-  const testId = 'CityCard'
   const wishText = 'I Wish!'
   const visitText = 'Visited'
+  const ariaLabelVisited = 'add to visited'
+  const ariaLabelWish = 'add to wishlist'
   const cityFacts = { id: 1, name: 'Test city', country: 'Test country' }
 
   it('renders the correct loading placeholder', async () => {
@@ -27,7 +28,7 @@ describe('<CityCard /> component', () => {
     render(<CityCard cityInfo={cityFacts} error={undefined} loading={false} onCityChange={() => {}} />)
     expect(await screen.findByText(cityFacts.name)).toBeVisible()
     expect(await screen.findByText(cityFacts.country)).toBeVisible()
-    const card = await screen.findByTestId(testId)
+    const card = await screen.findByLabelText(`Card of ${cityFacts.name} in ${cityFacts.country}`)
     expect(card).not.toContain(wishText)
     expect(card).not.toContain(visitText)
   })
@@ -41,7 +42,7 @@ describe('<CityCard /> component', () => {
           onCityChange={() => {}}
         />
       )
-      const card = await screen.findByTestId(testId)
+      const card = await screen.findByLabelText(`Card of ${cityFacts.name} in ${cityFacts.country}`)
       expect(card).not.toHaveTextContent(visitText)
       expect(card).toHaveTextContent(wishText)
     })
@@ -54,7 +55,8 @@ describe('<CityCard /> component', () => {
           onCityChange={() => {}}
         />
       )
-      const card = await screen.findByTestId(testId)
+      const card = await screen.findByLabelText(`Card of ${cityFacts.name} in ${cityFacts.country}`)
+      expect(await screen.findByLabelText(ariaLabelVisited)).toBeVisible()
       expect(card).toHaveTextContent(visitText)
       expect(card).not.toHaveTextContent(wishText)
     })
@@ -87,7 +89,7 @@ describe('<CityCard /> component', () => {
             onCityChange={jestCityChange}
           />
         )
-        const visitButton = await screen.findByText(visitText)
+        const visitButton = await screen.findByLabelText(ariaLabelVisited)
         fireEvent.click(visitButton)
         expect(jestCityChange).toBeCalledWith({ id: 1, visited: true })
       })
@@ -105,7 +107,7 @@ describe('<CityCard /> component', () => {
             onCityChange={jestCityChange}
           />
         )
-        const wishButton = await screen.findByText(wishText)
+        const wishButton = await screen.findByLabelText(ariaLabelWish)
         fireEvent.click(wishButton)
         expect(jestCityChange).toBeCalledWith({ id: 1, wishlist: false })
       })
@@ -120,7 +122,7 @@ describe('<CityCard /> component', () => {
             onCityChange={jestCityChange}
           />
         )
-        const wishButton = await screen.findByText(wishText)
+        const wishButton = await screen.findByLabelText(ariaLabelWish)
         fireEvent.click(wishButton)
         expect(jestCityChange).toBeCalledWith({ id: 1, wishlist: true })
       })

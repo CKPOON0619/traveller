@@ -23,12 +23,14 @@ export const Home: React.VoidFunctionComponent = () => {
       <Heading as="h1">Smart traveller</Heading>
       <Container maxW="container.lg">
         <InputGroup>
-          <Input data-testid="search-input" ref={searchRef} onKeyDown={handleEnterConfirmedSearch} />
+          <Input aria-label="search input" ref={searchRef} onKeyDown={handleEnterConfirmedSearch} />
           <InputRightElement
             children={
               <IconButton
-                aria-label=""
-                icon={<Search2Icon data-testid="search-icon" onClick={handleClickConfirmedSearch} />}
+                onClick={handleClickConfirmedSearch}
+                role="button"
+                aria-label="search"
+                icon={<Search2Icon />}
               />
             }
           />

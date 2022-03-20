@@ -10,16 +10,16 @@ jest.mock('./SearchResult', () => ({
 describe('<Home /> component', () => {
   it('should show a search box', async () => {
     render(<Home />)
-    expect(await screen.findByTestId('search-input')).toBeVisible()
+    expect(await screen.findByLabelText('search input')).toBeVisible()
   })
   it('Upon confirm it should pass the search value to search result component for searching', async () => {
     render(<Home />)
-    const inputField = await screen.findByTestId('search-input')
-    const searchIcon = await screen.findByTestId('search-icon')
+    const inputField = await screen.findByLabelText('search input')
+    const searchButton = await screen.findByLabelText('search')
     fireEvent.focus(inputField)
     fireEvent.change(inputField, { target: { value: 'London' } })
     expect(await screen.findByDisplayValue('London')).toBeVisible()
-    fireEvent.click(searchIcon)
+    fireEvent.click(searchButton)
     expect(await screen.findByText('<search result for London>')).toBeVisible()
     fireEvent.focus(inputField)
     fireEvent.change(inputField, { target: { value: 'Paris' } })
