@@ -68,7 +68,7 @@ export const CityCard: React.VoidFunctionComponent<CityCardProps> = ({ cityInfo,
       ) : null}
       {visited !== undefined ? (
         <Flex cursor={onCityChange ? 'pointer' : 'default'} onClick={handleVisitChange} mt={2} align="center">
-          <Box as={visited ? MdLocationOn : MdAddLocation} color={visited ? 'orange.400' : 'grey.400'} />
+          <Box as={visited ? MdLocationOn : MdAddLocation} color={visited ? 'orange.400' : 'gray.400'} />
           <Text ml={1} fontSize="sm">
             <b>Visited</b>
           </Text>
