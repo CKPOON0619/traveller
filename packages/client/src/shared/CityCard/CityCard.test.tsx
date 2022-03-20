@@ -1,5 +1,3 @@
-import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
 import { screen, render, fireEvent } from '@testing-library/react'
 import { CityCard } from './CityCard'
 import type { ApolloError } from '@apollo/client'

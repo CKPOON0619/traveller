@@ -1,6 +1,4 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { SearchResult } from './SearchResult'
-import type { ApolloError } from '@apollo/client'
 import { Home } from './Home'
 
 jest.mock('./SearchResult', () => ({
