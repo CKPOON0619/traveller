@@ -22,6 +22,7 @@ export const useCitiesSearchQuery = (search: string) => {
         name: search,
       },
     },
+    fetchPolicy: 'network-only',
     skip: !search,
   })
   return { loading, error, cities: data?.cities.cities }
