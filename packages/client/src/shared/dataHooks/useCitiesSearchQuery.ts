@@ -2,8 +2,8 @@ import { useQuery, gql } from '@apollo/client'
 import type { CityData } from './type'
 
 export const useCitiesSearchQuery = (search: string) => {
-  const CITIES_QUERY = gql`
-    query CITIES_QUERY($filter: CitiesFilters) {
+  const CITIES_SEARCH_QUERY = gql`
+    query CITIES_SEARCH_QUERY($filter: CitiesFilters) {
       cities(filter: $filter) {
         cities {
           id
@@ -16,7 +16,7 @@ export const useCitiesSearchQuery = (search: string) => {
     cities: {
       cities: CityData[]
     }
-  }>(CITIES_QUERY, {
+  }>(CITIES_SEARCH_QUERY, {
     variables: {
       filter: {
         name: search,
