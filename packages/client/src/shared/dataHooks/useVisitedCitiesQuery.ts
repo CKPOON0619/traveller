@@ -30,6 +30,7 @@ export const useVisitedCitiesQuery = () => {
         visited: true,
       },
     },
+    fetchPolicy: 'network-only',
   })
   return { loading, error, cities: data?.cities.cities }
 }

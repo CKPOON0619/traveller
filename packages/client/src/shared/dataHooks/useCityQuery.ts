@@ -17,6 +17,7 @@ export const useCityQuery = (id: number) => {
     variables: {
       cityId: id,
     },
+    fetchPolicy: 'network-only',
   })
 
   return { loading, error, data }

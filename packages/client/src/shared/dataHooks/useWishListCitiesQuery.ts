@@ -24,6 +24,7 @@ export const useWishListCitiesQuery = () => {
         wishlist: true,
       },
     },
+    fetchPolicy: 'network-only',
   })
   return { loading, error, cities: data?.cities.cities }
 }
