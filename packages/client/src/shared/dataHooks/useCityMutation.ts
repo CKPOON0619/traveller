@@ -17,7 +17,7 @@ export const useCityMutation = () => {
 
   const handleCityChange = React.useCallback(
     (changes: CityMutation) => {
-      mutateCity({ variables: { input: changes }, refetchQueries: ['VISITED_CITIES_QUERY', 'WISHLIST_CITIES_QUERY'] })
+      mutateCity({ variables: { input: changes } })
     },
     [mutateCity]
   )
