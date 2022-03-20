@@ -16,7 +16,7 @@ export const CitiesDisplay: React.FunctionComponent<{
   }
 
   return (
-    <SimpleGrid minChildWidth="120px" spacing="40px" paddingTop="40px">
+    <SimpleGrid minWidth="800px" minChildWidth="200px" spacing="40px" paddingTop="40px">
       {children || <p>Empty</p>}
     </SimpleGrid>
   )
