@@ -1,7 +1,7 @@
 import React from 'react'
 import { ChakraProvider, Box, extendTheme } from '@chakra-ui/react'
 import { Route, Routes } from 'react-router-dom'
-import TopBar from './TopBar'
+import { TopBar } from './TopBar'
 import { Home } from './Home/Home'
 import { WishList } from './WishList/WishList'
 import { Visited } from './Visited/Visited'

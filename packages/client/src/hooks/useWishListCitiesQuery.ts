@@ -1,3 +1,4 @@
+import type { ApolloError } from '@apollo/client'
 import { useQuery, gql } from '@apollo/client'
 import type { CityData } from './type'
 
@@ -7,7 +8,13 @@ interface CityQueryData {
   }
 }
 
-export const useWishListCitiesQuery = () => {
+interface UseWishListCitiesQueryReturnType {
+  loading: boolean
+  error?: ApolloError
+  cities?: CityData[]
+}
+
+export const useWishListCitiesQuery = (): UseWishListCitiesQueryReturnType => {
   const WISHLIST_CITIES_QUERY = gql`
     query WISHLIST_CITIES_QUERY($filter: CitiesFilters) {
       cities(filter: $filter) {
