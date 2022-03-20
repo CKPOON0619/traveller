@@ -5,7 +5,7 @@ import { VisitedCities } from './VisitedCities'
 export const Visited: React.VoidFunctionComponent = () => (
   <>
     <Heading as="h1">Visited</Heading>
-    <Container centerContent maxW="container.md" flexDir="row">
+    <Container centerContent maxW="container.lg" flexDir="row">
       <VisitedCities />
     </Container>
   </>

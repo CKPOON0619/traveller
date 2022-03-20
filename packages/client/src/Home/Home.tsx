@@ -20,7 +20,7 @@ export const Home: React.VoidFunctionComponent = () => {
   return (
     <VStack spacing="8">
       <Heading as="h1">Smart traveller</Heading>
-      <Container maxW="container.md">
+      <Container maxW="container.lg">
         <InputGroup>
           <Input data-testid="search-input" ref={searchRef} onKeyDown={handleEnterConfirmedSearch} />
           <InputRightElement
