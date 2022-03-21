@@ -9,7 +9,7 @@ describe('<CitiesDisplay /> component', () => {
         Display content
       </CitiesDisplay>
     )
-    expect(await screen.findByText('Loading...')).toBeVisible()
+    expect(await screen.findByLabelText('loading...')).toBeVisible()
   })
   it('renders the correct error placeholder', async () => {
     render(
@@ -17,6 +17,6 @@ describe('<CitiesDisplay /> component', () => {
         Display content
       </CitiesDisplay>
     )
-    expect(await screen.findByText('Error :(')).toBeVisible()
+    expect(await screen.findByLabelText('error')).toBeVisible()
   })
 })

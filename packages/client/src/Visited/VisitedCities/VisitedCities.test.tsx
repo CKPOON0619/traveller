@@ -30,7 +30,7 @@ describe('<VisitedCities /> component', () => {
     })
 
     render(<VisitedCities />)
-    expect(await screen.findByText('Error :(')).toBeVisible()
+    expect(await screen.findByLabelText('error')).toBeVisible()
   })
 
   it('should display all the cities returned by the query hook', async () => {

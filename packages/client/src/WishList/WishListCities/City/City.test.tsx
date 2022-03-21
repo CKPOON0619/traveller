@@ -38,7 +38,7 @@ describe('<City /> component for Visited page', () => {
       error: undefined,
     })
     render(<City id={1} />)
-    expect(await screen.findByText('Error :(')).toBeVisible()
+    expect(await screen.findByLabelText('error')).toBeVisible()
   })
   it('renders the Card with CityFacts and ONLY visited button', async () => {
     mockedUseCityQuery.mockReturnValue({

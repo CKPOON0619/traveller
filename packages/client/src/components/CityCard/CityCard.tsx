@@ -1,5 +1,5 @@
 import type { ApolloError } from '@apollo/client'
-import { Box, Image, Flex, Text } from '@chakra-ui/react'
+import { Box, Image, Flex, Text, Alert, AlertIcon } from '@chakra-ui/react'
 import { MdStar, MdStarBorder, MdAddLocation, MdLocationOn } from 'react-icons/md'
 
 import * as React from 'react'
@@ -38,10 +38,11 @@ export const CityCard: React.VoidFunctionComponent<CityCardProps> = ({ cityInfo,
   if (cityInfo === undefined || error) {
     return (
       <Box p="5" maxW="320px" borderWidth="1px">
-        <Flex mt={2} align="center">
-          <Text ml={1} fontSize="sm">
-            <b>Error :(</b>
-          </Text>
+        <Flex mt={2} align="center" justifyContent="center">
+          <Alert aria-label="error" status="error">
+            <AlertIcon />
+            Error :(
+          </Alert>
         </Flex>
       </Box>
     )

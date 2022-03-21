@@ -31,7 +31,7 @@ describe('<CitiesDisplay /> component', () => {
     })
 
     render(<SearchResult searchName="London" />)
-    expect(await screen.findByText('Error :(')).toBeVisible()
+    expect(await screen.findByLabelText('error')).toBeVisible()
   })
   it('renders the Card correctly', async () => {
     const cityQueryResults = [

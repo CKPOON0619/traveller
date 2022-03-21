@@ -22,7 +22,7 @@ describe('<CityCard /> component', () => {
         onCityChange={() => {}}
       />
     )
-    expect(await screen.findByText('Error :(')).toBeVisible()
+    expect(await screen.findByLabelText('error')).toBeVisible()
   })
   it('renders the Card with only CityFacts when no CityUserConfig given', async () => {
     render(<CityCard cityInfo={cityFacts} error={undefined} loading={false} onCityChange={() => {}} />)

@@ -43,7 +43,6 @@ We have provided a few packages that will help you in your solution:
 
 ## KIN TODO:
 
-- Replace country picture if actual(if any)
-- Replace card result by infinite scroll using limit and offset
-- Replace error, loading and empty placeholder with better UI
-- Investigate query caching to improve performance
+- Replace country picture with actual(if any)
+- Investigate query caching in graphql to improve performance
+- Replace card result by infinite scroll using limit and offset api
