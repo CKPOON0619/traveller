@@ -1,5 +1,5 @@
 import React from 'react'
-import { SimpleGrid, Spinner, Center, Alert, AlertIcon, Container, Square, Flex } from '@chakra-ui/react'
+import { SimpleGrid, Spinner, Alert, AlertIcon, Square, Flex } from '@chakra-ui/react'
 import type { ApolloError } from '@apollo/client'
 
 export const CitiesDisplay: React.FunctionComponent<{
@@ -8,12 +8,18 @@ export const CitiesDisplay: React.FunctionComponent<{
   children?: React.ReactNode
 }> = ({ loading, error, children }) => {
   const [showSpinner, setShowSpinner] = React.useState<boolean>(false)
+  const timeoutRef = React.useRef<ReturnType<typeof setTimeout> | undefined>()
   React.useEffect(() => {
     if (loading) {
-      setTimeout(() => setShowSpinner(true), 1000)
-      console.log({ loading })
+      timeoutRef.current = setTimeout(() => setShowSpinner(true), 1000)
     } else {
       setShowSpinner(false)
+    }
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+        timeoutRef.current = undefined
+      }
     }
   }, [loading])
 

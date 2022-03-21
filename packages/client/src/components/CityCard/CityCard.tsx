@@ -1,5 +1,5 @@
 import type { ApolloError } from '@apollo/client'
-import { Box, Image, Flex, Text, Alert, AlertIcon } from '@chakra-ui/react'
+import { Box, Image, Flex, Text, Alert, AlertIcon, Square, Spinner } from '@chakra-ui/react'
 import { MdStar, MdStarBorder, MdAddLocation, MdLocationOn } from 'react-icons/md'
 
 import * as React from 'react'
@@ -13,6 +13,22 @@ interface CityCardProps {
 }
 
 export const CityCard: React.VoidFunctionComponent<CityCardProps> = ({ cityInfo, error, loading, onCityChange }) => {
+  const [showSpinner, setShowSpinner] = React.useState<boolean>(false)
+  const timeoutRef = React.useRef<ReturnType<typeof setTimeout> | undefined>()
+  React.useEffect(() => {
+    if (loading) {
+      timeoutRef.current = setTimeout(() => setShowSpinner(true), 1000)
+    } else {
+      setShowSpinner(false)
+    }
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+        timeoutRef.current = undefined
+      }
+    }
+  }, [loading])
+
   const handleWishlistChange = React.useCallback(() => {
     if (onCityChange && cityInfo?.wishlist !== undefined) {
       onCityChange({ id: cityInfo.id, wishlist: !cityInfo?.wishlist })
@@ -24,13 +40,13 @@ export const CityCard: React.VoidFunctionComponent<CityCardProps> = ({ cityInfo,
     }
   }, [onCityChange, cityInfo?.visited])
 
-  if (cityInfo === undefined && loading) {
+  if (showSpinner && cityInfo === undefined && loading) {
     return (
       <Box p="5" maxW="320px" borderWidth="1px">
-        <Flex mt={2} align="center">
-          <Text ml={1} fontSize="sm">
-            <b>Loading...</b>
-          </Text>
+        <Flex alignItems="center" justifyContent="center">
+          <Square size="150px">
+            <Spinner aria-label="loading..." color="blue.400" />
+          </Square>
         </Flex>
       </Box>
     )
