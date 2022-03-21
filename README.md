@@ -46,3 +46,4 @@ We have provided a few packages that will help you in your solution:
 - Replace city picture with actual(if any)
 - Investigate query caching in graphql to improve performance
 - Replace card result by infinite scroll using limit and offset api
+- Investigate aria best practice
