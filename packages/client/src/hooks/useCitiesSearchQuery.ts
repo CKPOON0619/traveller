@@ -14,11 +14,15 @@ export const useCitiesSearchQuery = (searchCityName?: string): useCitiesSearchQu
       cities(filter: $filter) {
         cities {
           id
+          name
+          country
+          visited
+          wishlist
         }
       }
     }
   `
-
+  console.log('CITIES')
   const { loading, error, data } = useQuery<{
     cities: {
       cities: CityData[]

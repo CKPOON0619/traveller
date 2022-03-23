@@ -7,7 +7,10 @@ export const VisitedCities: React.VoidFunctionComponent = () => {
   const { loading, cities, error } = useVisitedCitiesQuery()
   return (
     <CitiesDisplay loading={loading} error={error}>
-      {cities && cities.map(({ id }) => <City key={id} id={id} />)}
+      {cities &&
+        cities.map(({ id, name, country, wishlist }) => (
+          <City key={id} id={id} name={name} country={country} wishlist={wishlist} />
+        ))}
     </CitiesDisplay>
   )
 }

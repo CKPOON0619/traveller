@@ -7,7 +7,10 @@ export const WishListCities: React.VoidFunctionComponent = () => {
   const { loading, cities, error } = useWishListCitiesQuery()
   return (
     <CitiesDisplay loading={loading} error={error}>
-      {cities && cities.map(({ id }) => <City key={id} id={id} />)}
+      {cities &&
+        cities.map(({ id, name, country, visited }) => (
+          <City key={id} id={id} country={country} name={name} visited={visited} />
+        ))}
     </CitiesDisplay>
   )
 }

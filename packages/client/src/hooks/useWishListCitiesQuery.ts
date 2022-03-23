@@ -20,6 +20,9 @@ export const useWishListCitiesQuery = (): UseWishListCitiesQueryReturnType => {
       cities(filter: $filter) {
         cities {
           id
+          name
+          country
+          visited
         }
       }
     }

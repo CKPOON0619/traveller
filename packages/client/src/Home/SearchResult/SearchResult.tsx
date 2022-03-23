@@ -8,7 +8,10 @@ export const SearchResult: React.VoidFunctionComponent<{ searchName: string }> =
 
   return (
     <CitiesDisplay loading={loading} error={error}>
-      {cities && cities.map(({ id }) => <City key={id} id={id} />)}
+      {cities &&
+        cities.map(({ id, name, country, visited, wishlist }) => (
+          <City key={id} id={id} country={country} name={name} visited={visited} wishlist={wishlist} />
+        ))}
     </CitiesDisplay>
   )
 }

@@ -20,6 +20,9 @@ export const useVisitedCitiesQuery = (): UseVisitedCitiesQueryReturnType => {
       cities(filter: $filter) {
         cities {
           id
+          name
+          country
+          wishlist
         }
       }
     }
@@ -31,7 +34,6 @@ export const useVisitedCitiesQuery = (): UseVisitedCitiesQueryReturnType => {
         visited: true,
       },
     },
-    fetchPolicy: 'network-only',
   })
   return { loading, error, cities: data?.cities.cities }
 }
